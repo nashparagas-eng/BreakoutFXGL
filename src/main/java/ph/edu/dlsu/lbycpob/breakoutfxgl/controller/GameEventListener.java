@@ -1,4 +1,4 @@
-package com.dlsu.breakout.controller;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.controller;
 
 /**
  * GameEventListener is a small, FXGL-free contract that lets the
@@ -41,6 +41,16 @@ public interface GameEventListener {
         public void onBrickBroken() {
             // Intentionally does nothing - see the Null Object explanation above.
         }
+
+        @Override
+        public void onGameOver() {
+            // Intentionally does nothing - see the Null Object explanation above.
+        }
+
+        @Override
+        public void onVictory() {
+            // Intentionally does nothing - see the Null Object explanation above.
+        }
     };
 
     /** Called whenever the ball bounces off a wall, the paddle, or a brick. */
@@ -48,4 +58,8 @@ public interface GameEventListener {
 
     /** Called whenever a brick is destroyed (a STRONG brick only triggers this on its final hit, not its first). */
     void onBrickBroken();
+
+    void onGameOver();
+
+    void onVictory();
 }

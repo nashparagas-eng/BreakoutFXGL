@@ -1,24 +1,25 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
-import com.dlsu.breakout.controller.GameManager;
+
+import ph.edu.dlsu.lbycpob.breakoutfxgl.controller.GameManager;
 
 /**
  * PowerUp is the abstract parent class for every falling bonus item
  * in the game (widen paddle, shrink paddle, multi-ball, ...).
- *
+ * <p>
  * PowerUp EXTENDS GameObject, so it already has position/size/collision
  * behavior. It adds two things every power-up needs:
- *
+ * <p>
  *   1. A shared falling motion (see update() below) - this part is
  *      the SAME for every power-up, so we write it once here.
- *
+ * <p>
  *   2. An abstract applyEffect() method - this part is DIFFERENT for
  *      every power-up, so each subclass (WidenPaddlePowerUp,
  *      ShrinkPaddlePowerUp, MultiBallPowerUp, ...) must supply its own.
- *
+ * <p>
  * This mix of "shared code lives in the parent, unique code lives in
  * the child" is a very common and very useful inheritance pattern.
- *
+ * <p>
  * POLYMORPHISM PAYOFF: GameManager keeps a single List of whatever
  * power-ups are currently falling. When the paddle catches one,
  * GameManager just calls powerUp.applyEffect(this) - it does not need

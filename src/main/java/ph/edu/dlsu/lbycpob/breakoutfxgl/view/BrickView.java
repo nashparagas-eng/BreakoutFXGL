@@ -1,11 +1,11 @@
-package com.dlsu.breakout.view;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.view;
 
 import com.almasb.fxgl.entity.Entity;
-import com.dlsu.breakout.model.Brick;
-import com.dlsu.breakout.model.BrickType;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.Brick;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.BrickType;
 
 /**
  * BrickView bundles together everything the VIEW layer needs to

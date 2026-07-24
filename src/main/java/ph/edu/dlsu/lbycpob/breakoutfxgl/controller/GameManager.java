@@ -1,13 +1,8 @@
-package com.dlsu.breakout.controller;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.controller;
 
-import com.dlsu.breakout.model.Ball;
-import com.dlsu.breakout.model.Brick;
-import com.dlsu.breakout.model.BrickType;
-import com.dlsu.breakout.model.MultiBallPowerUp;
-import com.dlsu.breakout.model.Paddle;
-import com.dlsu.breakout.model.PowerUp;
-import com.dlsu.breakout.model.ShrinkPaddlePowerUp;
-import com.dlsu.breakout.model.WidenPaddlePowerUp;
+
+
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +11,7 @@ import java.util.Random;
 
 /**
  * GameManager is the CONTROLLER in our MVC design.
- *
+ * <p>
  * MVC (Model-View-Controller) split used in this project:
  *   MODEL      -> Ball, Paddle, Brick, PowerUp and their subclasses.
  *                 Plain Java objects. They know nothing about FXGL,
@@ -30,7 +25,7 @@ import java.util.Random;
  *                 current state so the View can draw it. GameManager
  *                 never touches JavaFX/FXGL classes directly - that
  *                 keeps the game logic reusable and easy to unit test.
- *
+ * <p>
  * COLLECTIONS: bricks, balls, and powerUps are all stored in
  * ArrayLists. ArrayList<Brick> in particular is required by the
  * assignment brief; the same List<X> pattern is reused for balls and
@@ -104,12 +99,6 @@ public class GameManager {
         double brickHeight = 24;
         double gap = 6;
         double startX = (fieldWidth - (cols * (brickWidth + gap) - gap)) / 2.0;
-        // BUG FIX: this used to be 50, which placed the top row of bricks
-        // underneath the HUD scoreboard bar (see HudView - the bar is 76
-        // pixels tall and is drawn ON TOP of the game world as a UI node).
-        // The bricks were technically still there and still collidable,
-        // they were just invisible, hidden behind the HUD. Starting lower,
-        // below the bar, makes the whole grid visible.
         double startY = 90;
 
         for (int row = 0; row < rows; row++) {
@@ -174,7 +163,6 @@ public class GameManager {
     // -----------------------------------------------------------------
     // COLLISION DETECTION
     // -----------------------------------------------------------------
-
     private void handleWallCollisions() {
         for (Ball ball : balls) {
             if (ball.getX() <= 0 || ball.getRight() >= fieldWidth) {
@@ -221,18 +209,6 @@ public class GameManager {
                 }
 
                 boolean destroyed = brick.hit();
-
-                // BUG FIX: the original version only reversed the
-                // ball's velocity here and left its POSITION untouched.
-                // If the ball was still overlapping the brick on the
-                // very next frame (which happens often at typical ball
-                // speeds), it would immediately "collide" again, bounce
-                // back the other way, and could get stuck rapidly
-                // flip-flopping inside the brick instead of flying
-                // cleanly away from it. bounceBallOffBrick() below now
-                // also nudges the ball completely outside the brick's
-                // bounds, along whichever axis it bounced on, so this
-                // can no longer happen.
                 bounceBallOffBrick(ball, brick);
                 eventListener.onBallBounce();
 
@@ -310,6 +286,7 @@ public class GameManager {
             lives--;
             if (lives <= 0) {
                 gameOver = true;
+                eventListener.onGameOver();
             } else {
                 // Respawn a single fresh ball for the next attempt.
                 balls.add(new Ball(fieldWidth / 2, fieldHeight - 80, 10));
@@ -326,6 +303,7 @@ public class GameManager {
                 .anyMatch(brick -> brick.getType() != BrickType.UNBREAKABLE);
         if (!anyBreakableBrickLeft) {
             levelCleared = true;
+            eventListener.onVictory();
         }
     }
 
@@ -343,25 +321,18 @@ public class GameManager {
         double y = brick.getY();
 
         int choice = random.nextInt(3);
-        PowerUp powerUp;
-        switch (choice) {
-            case 0:
-                powerUp = new WidenPaddlePowerUp(x, y);
-                break;
-            case 1:
-                powerUp = new ShrinkPaddlePowerUp(x, y);
-                break;
-            default:
-                powerUp = new MultiBallPowerUp(x, y);
-                break;
-        }
+        PowerUp powerUp = switch (choice) {
+            case 0 -> new WidenPaddlePowerUp(x, y);
+            case 1 -> new ShrinkPaddlePowerUp(x, y);
+            default -> new MultiBallPowerUp(x, y);
+        };
         powerUps.add(powerUp);
     }
 
     /** Called by MultiBallPowerUp.applyEffect(). Adds a clone of an existing ball. */
     public void spawnExtraBall() {
         if (!balls.isEmpty()) {
-            balls.add(balls.get(0).copy());
+            balls.add(balls.getFirst().copy());
         }
     }
 

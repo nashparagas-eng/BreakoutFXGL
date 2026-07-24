@@ -1,4 +1,4 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
 /**
  * Paddle represents the player-controlled bar at the bottom of the

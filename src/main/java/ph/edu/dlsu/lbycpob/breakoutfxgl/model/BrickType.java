@@ -1,4 +1,4 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
 /**
  * BrickType is a small enum (a fixed list of named constants) that

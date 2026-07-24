@@ -1,21 +1,22 @@
-package com.dlsu.breakout.view;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.view;
 
 import com.almasb.fxgl.entity.Entity;
-import com.dlsu.breakout.model.Brick;
-import com.dlsu.breakout.model.BrickType;
+
 import javafx.scene.Node;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.Brick;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.BrickType;
 
 import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 
 /**
  * BrickViewFactory turns a Brick (MODEL) into a BrickView (an on-screen
  * FXGL Entity plus the bookkeeping needed to update its look later).
- *
+ * <p>
  * This is where the "two PNG images, robust rectangle fallback"
  * requirement is implemented:
  *   1. Ask BrickTextureLoader to load this brick type's "before" and
@@ -46,7 +47,7 @@ public class BrickViewFactory {
             imageView.setPreserveRatio(false);
             viewNode = imageView;
         } else {
-            // ROBUST FALLBACK: no PNG on disk, so draw a simple colored
+            // FALLBACK: no PNG on disk, so draw a simple colored
             // rectangle instead. The game must never crash or show a
             // blank tile just because art assets have not been added.
             rectangle = new Rectangle(brick.getWidth(), brick.getHeight());

@@ -1,22 +1,18 @@
-package com.dlsu.breakout.app;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.app;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.UserAction;
-import com.dlsu.breakout.audio.AudioManager;
-import com.dlsu.breakout.controller.GameManager;
-import com.dlsu.breakout.model.Ball;
-import com.dlsu.breakout.model.Brick;
-import com.dlsu.breakout.model.GameObject;
-import com.dlsu.breakout.model.Paddle;
-import com.dlsu.breakout.model.PowerUp;
-import com.dlsu.breakout.view.BrickView;
-import com.dlsu.breakout.view.BrickViewFactory;
-import com.dlsu.breakout.view.EntityViewFactory;
-import com.dlsu.breakout.view.HudView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.audio.AudioManager;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.controller.GameManager;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.*;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.view.BrickView;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.view.BrickViewFactory;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.view.EntityViewFactory;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.view.HudView;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,16 +24,16 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 /**
  * BreakoutApp is the VIEW (and application entry point) in our MVC
  * design. Its responsibilities are strictly about drawing and input:
- *
- *   - It creates and owns a GameManager (the Controller).
- *   - It turns keyboard events into calls on GameManager
- *     (EVENT HANDLING).
- *   - Its onUpdate(tpf) method IS the ANIMATION LOOP: FXGL calls it
- *     automatically about 60 times per second.
- *   - Each frame, it asks GameManager to update the model, then it
- *     copies the model's current position/state onto the on-screen
- *     FXGL Entities so the player sees the new positions.
- *
+ * <p>
+ * - It creates and owns a GameManager (the Controller).
+ * - It turns keyboard events into calls on GameManager
+ * (EVENT HANDLING).
+ * - Its onUpdate(tpf) method IS the ANIMATION LOOP: FXGL calls it
+ * automatically about 60 times per second.
+ * - Each frame, it asks GameManager to update the model, then it
+ * copies the model's current position/state onto the on-screen
+ * FXGL Entities so the player sees the new positions.
+ * <p>
  * Notice this class never contains game RULES (no collision math, no
  * scoring math) - all of that lives in the Model/Controller classes,
  * and even most of the DRAWING details live in the view package
@@ -49,8 +45,7 @@ public class BreakoutApp extends GameApplication {
     private static final int FIELD_WIDTH = 800;
     private static final int FIELD_HEIGHT = 800;
 
-    // A light, soft background - the "white background, light theme" look
-    // requested, using an off-white shade so shapes are still easy to see.
+    // A light, soft background
     private static final Color BACKGROUND_COLOR = Color.web("#f5f6fa");
 
     private GameManager gameManager;
@@ -77,7 +72,7 @@ public class BreakoutApp extends GameApplication {
     // runs, not the music.
     private AudioManager audioManager;
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         launch(args);
     }
 

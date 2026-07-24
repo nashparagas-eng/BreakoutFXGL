@@ -1,9 +1,7 @@
-package com.dlsu.breakout.view;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.view;
 
 import com.almasb.fxgl.entity.Entity;
-import com.dlsu.breakout.model.Ball;
-import com.dlsu.breakout.model.Paddle;
-import com.dlsu.breakout.model.PowerUp;
+
 import javafx.scene.Group;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -12,6 +10,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.Ball;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.Paddle;
+import ph.edu.dlsu.lbycpob.breakoutfxgl.model.PowerUp;
 
 import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 

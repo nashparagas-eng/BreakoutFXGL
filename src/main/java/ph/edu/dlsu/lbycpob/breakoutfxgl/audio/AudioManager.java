@@ -1,10 +1,10 @@
-package com.dlsu.breakout.audio;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.audio;
 
-import com.dlsu.breakout.controller.GameEventListener;
+
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
+import ph.edu.dlsu.lbycpob.breakoutfxgl.controller.GameEventListener;
 import java.net.URL;
 
 /**
@@ -14,7 +14,7 @@ import java.net.URL;
  * implements GameEventListener so that GameManager (the CONTROLLER)
  * can trigger sounds indirectly, through that interface, without ever
  * importing anything from this class or from JavaFX's media package.
- *
+ * <p>
  * ROBUST LOADING, SAME PHILOSOPHY AS BrickTextureLoader:
  * All three audio files are expected under
  * src/main/resources/assets/sounds/ (see README_ASSETS.txt in that
@@ -23,7 +23,7 @@ import java.net.URL;
  * of throwing an exception - the corresponding play...() method then
  * just does nothing. The game must always be playable, with or
  * without sound assets, exactly like the brick images.
- *
+ * <p> <p>
  * WHY TWO DIFFERENT JAVAFX AUDIO CLASSES:
  *   - javafx.scene.media.MediaPlayer is used for the background music,
  *     because it supports looping (setCycleCount) and represents a
@@ -39,22 +39,30 @@ public class AudioManager implements GameEventListener {
     private static final String BACKGROUND_MUSIC_PATH = "/assets/sounds/background_music.mp3";
     private static final String BALL_BOUNCE_PATH = "/assets/sounds/ball_bounce.mp3";
     private static final String BRICK_BREAK_PATH = "/assets/sounds/brick_hit.mp3";
+    private static final String GAME_OVER_PATH =  "/assets/sounds/game_over.mp3";
+    private static final String VICTORY_PATH = "/assets/sounds/game_win.mp3";
 
     private static final double DEFAULT_MUSIC_VOLUME = 0.35;
     private static final double DEFAULT_SFX_VOLUME = 0.7;
+
 
     // Any of these three may legitimately be null if the matching file
     // was not found - every method below checks for that before using them.
     private final MediaPlayer backgroundMusicPlayer;
     private final AudioClip ballBounceClip;
     private final AudioClip brickBreakClip;
+    private final AudioClip gameOverClip;
+    private final AudioClip victoryClip;
 
     private boolean muted = false;
+
 
     public AudioManager() {
         this.backgroundMusicPlayer = loadMusic(BACKGROUND_MUSIC_PATH, DEFAULT_MUSIC_VOLUME);
         this.ballBounceClip = loadClip(BALL_BOUNCE_PATH);
         this.brickBreakClip = loadClip(BRICK_BREAK_PATH);
+        this.gameOverClip = loadClip(GAME_OVER_PATH);
+        this.victoryClip = loadClip(VICTORY_PATH);
     }
 
     // -----------------------------------------------------------------
@@ -160,5 +168,19 @@ public class AudioManager implements GameEventListener {
     @Override
     public void onBrickBroken() {
         playBrickBreakSound();
+    }
+
+    @Override
+    public void onGameOver() {
+        if (gameOverClip != null && !muted) {
+            gameOverClip.play(DEFAULT_SFX_VOLUME);
+        }
+    }
+
+    @Override
+    public void onVictory() {
+        if (victoryClip != null && !muted) {
+            victoryClip.play(DEFAULT_SFX_VOLUME);
+        }
     }
 }

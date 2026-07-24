@@ -1,8 +1,8 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
 /**
  * Ball represents the bouncing ball in Breakout.
- *
+ * <p>
  * Ball EXTENDS GameObject, so it automatically has x, y, width, height,
  * getters/setters, and collidesWith() without us writing that code
  * again. We only add what is special about a ball: its own speed in

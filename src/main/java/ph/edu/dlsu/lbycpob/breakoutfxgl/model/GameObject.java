@@ -1,22 +1,22 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
 /**
  * GameObject is the parent (base) class for every object that can move
  * around or be collided with in the Breakout game: Ball, Paddle, Brick,
  * and PowerUp all extend this class.
- *
+ * <p>
  * WHY THIS CLASS EXISTS (INHERITANCE):
  * Instead of writing x, y, width, height, and collision code four
  * separate times, we write it ONCE here. Ball, Paddle, Brick, and
  * PowerUp then reuse ("inherit") this code with the "extends" keyword.
- *
+ * <p>
  * WHY THE FIELDS ARE PRIVATE (ENCAPSULATION):
  * Other classes are not allowed to change x or y directly
  * (myBall.x = 5 would not even compile). They must go through the
  * getX()/setX() methods below. This protects the internal state of
  * the object and lets us add validation later (for example, making
  * sure width never becomes negative) without breaking other code.
- *
+ * <p>
  * WHY update() IS abstract (POLYMORPHISM):
  * This class does not know HOW a Ball should move versus how a Brick
  * should sit still, so it leaves update() unimplemented and forces
@@ -104,7 +104,7 @@ public abstract class GameObject {
      * deltaSeconds is the time, in seconds, since the previous frame -
      * we multiply speeds by this value so the game runs at the same
      * speed on both a fast and a slow computer.
-     *
+     * <p>
      * Every subclass MUST override this method (that is what
      * "abstract" forces). This is our POLYMORPHISM hook.
      */
@@ -114,7 +114,7 @@ public abstract class GameObject {
      * Simple axis-aligned bounding box (AABB) collision test.
      * Two rectangles overlap if, on both the X axis and the Y axis,
      * they overlap at the same time.
-     *
+     * <p>
      * This one method is reused for EVERY kind of collision in the
      * game: ball-vs-paddle, ball-vs-brick, paddle-vs-powerup, and so
      * on, because all of those objects are GameObjects.

@@ -1,4 +1,4 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
 /**
  * Brick represents one destructible block in the wall of bricks.

@@ -1,6 +1,7 @@
-package com.dlsu.breakout.model;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.model;
 
-import com.dlsu.breakout.controller.GameManager;
+
+import ph.edu.dlsu.lbycpob.breakoutfxgl.controller.GameManager;
 
 /**
  * Concrete PowerUp: shrinks the paddle. Included so students see that

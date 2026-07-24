@@ -1,4 +1,4 @@
-package com.dlsu.breakout.view;
+package ph.edu.dlsu.lbycpob.breakoutfxgl.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.effect.DropShadow;
@@ -21,12 +21,12 @@ import java.util.List;
  * only job is to build and update the on-screen scoreboard and the
  * "Game Over" / "Level Cleared" message card, in a light, indie-game
  * style (rounded cards, soft drop shadows, a calm color palette).
- *
+ * <p>
  * Keeping this UI-building code in its own class instead of stuffing
  * it into BreakoutApp keeps that class focused on wiring the game
  * loop together, and makes it obvious where to look if you only want
  * to restyle the HUD.
- *
+ * <p>
  * No emoji or special Unicode symbols are used anywhere in this class
  * - "lives remaining" is shown with plain JavaFX Circle shapes
  * instead of a heart symbol, so everything here stays fully typable
