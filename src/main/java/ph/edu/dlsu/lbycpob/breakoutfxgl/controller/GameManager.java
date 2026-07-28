@@ -97,7 +97,6 @@ public class GameManager {
     //            DEFAULT
     //==========================================
 
-
     private void buildLevel() {
         int rows = 5;
         int cols = 8;
@@ -180,6 +179,15 @@ public class GameManager {
 //            }
 //        }
 //    }
+
+    //==========================================
+    //           PLACEHOLDER SHAPE
+    //==========================================
+
+
+    //==========================================
+    //           PLACEHOLDER SHAPE
+    //==========================================
 
     /**
      * The main per-frame update. BreakoutApp calls this once per
