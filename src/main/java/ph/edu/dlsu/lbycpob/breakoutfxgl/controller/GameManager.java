@@ -206,6 +206,21 @@ public class GameManager {
             // Total width of the current row to center it on the screen
             double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
             double startX = (fieldWidth - rowWidth) / 2.0;
+
+            for (int col = 0; col < bricksInRow; col++) {
+                double x = startX + col * (brickWidth + gap);
+                double y = startY + row * (brickHeight + gap);
+
+                // Adding normal bricks to form the shape
+                bricks.add(new Brick(
+                        x,
+                        y,
+                        brickWidth,
+                        brickHeight,
+                        BrickType.NORMAL
+                ));
+            }
+        }
     }
 
 
