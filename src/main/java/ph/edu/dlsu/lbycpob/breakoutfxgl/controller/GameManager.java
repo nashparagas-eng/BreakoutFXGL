@@ -195,6 +195,13 @@ public class GameManager {
         double brickHeight = 24;
         double gap = 6;
         double startY = 60; // Starting Y position from the top
+
+        for (int row = 0; row < rows; row++) {
+            // Calculate how far the current row is from the middle row
+            int distanceFromMiddle = Math.abs(middleRow - row);
+
+            // Number of bricks decreases by 2 for each step away from the center
+            int bricksInRow = maxBricks - (2 * distanceFromMiddle);
     }
 
 
