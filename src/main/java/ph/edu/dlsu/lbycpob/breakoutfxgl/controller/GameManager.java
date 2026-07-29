@@ -189,6 +189,12 @@ public class GameManager {
         int rows = 11; // Total number of rows to form the diamond
         int maxBricks = 11; // Number of bricks in the widest middle row
         int middleRow = rows / 2; // Index 5 is the middle row
+
+        // Brick dimensions and spacing
+        double brickWidth = 65;
+        double brickHeight = 24;
+        double gap = 6;
+        double startY = 60; // Starting Y position from the top
     }
 
 
