@@ -261,6 +261,16 @@ public class GameManager {
 //                } else {
 //                    brickType = BrickType.NORMAL;
 //                }
+//                bricks.add(new Brick(
+//                        x,
+//                        y,
+//                        brickWidth,
+//                        brickHeight,
+//                        brickType
+//                ));
+//            }
+//        }
+//    }
     /**
      * The main per-frame update. BreakoutApp calls this once per
      * animation frame (this is our ANIMATION LOOP hook). Everything
