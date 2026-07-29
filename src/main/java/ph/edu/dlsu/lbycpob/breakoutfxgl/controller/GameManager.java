@@ -184,44 +184,44 @@ public class GameManager {
     //            DIAMOND SHAPE
     //==========================================
 
-    private void buildLevel() {
-
-        int rows = 11; // Total number of rows to form the diamond
-        int maxBricks = 11; // Number of bricks in the widest middle row
-        int middleRow = rows / 2; // Index 5 is the middle row
-
-        // Brick dimensions and spacing
-        double brickWidth = 65;
-        double brickHeight = 24;
-        double gap = 6;
-        double startY = 60; // Starting Y position from the top
-
-        for (int row = 0; row < rows; row++) {
-            // Calculate how far the current row is from the middle row
-            int distanceFromMiddle = Math.abs(middleRow - row);
-
-            // Number of bricks decreases by 2 for each step away from the center
-            int bricksInRow = maxBricks - (2 * distanceFromMiddle);
-
-            // Total width of the current row to center it on the screen
-            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
-            double startX = (fieldWidth - rowWidth) / 2.0;
-
-            for (int col = 0; col < bricksInRow; col++) {
-                double x = startX + col * (brickWidth + gap);
-                double y = startY + row * (brickHeight + gap);
-
-                // Adding normal bricks to form the shape
-                bricks.add(new Brick(
-                        x,
-                        y,
-                        brickWidth,
-                        brickHeight,
-                        BrickType.NORMAL
-                ));
-            }
-        }
-    }
+//    private void buildLevel() {
+//
+//        int rows = 11; // Total number of rows to form the diamond
+//        int maxBricks = 11; // Number of bricks in the widest middle row
+//        int middleRow = rows / 2; // Index 5 is the middle row
+//
+//        // Brick dimensions and spacing
+//        double brickWidth = 65;
+//        double brickHeight = 24;
+//        double gap = 6;
+//        double startY = 60; // Starting Y position from the top
+//
+//        for (int row = 0; row < rows; row++) {
+//            // Calculate how far the current row is from the middle row
+//            int distanceFromMiddle = Math.abs(middleRow - row);
+//
+//            // Number of bricks decreases by 2 for each step away from the center
+//            int bricksInRow = maxBricks - (2 * distanceFromMiddle);
+//
+//            // Total width of the current row to center it on the screen
+//            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
+//            double startX = (fieldWidth - rowWidth) / 2.0;
+//
+//            for (int col = 0; col < bricksInRow; col++) {
+//                double x = startX + col * (brickWidth + gap);
+//                double y = startY + row * (brickHeight + gap);
+//
+//                // Adding normal bricks to form the shape
+//                bricks.add(new Brick(
+//                        x,
+//                        y,
+//                        brickWidth,
+//                        brickHeight,
+//                        BrickType.NORMAL
+//                ));
+//            }
+//        }
+//    }
 
 
     //==========================================
