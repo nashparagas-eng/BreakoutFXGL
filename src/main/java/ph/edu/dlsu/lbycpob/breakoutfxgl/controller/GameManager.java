@@ -229,9 +229,13 @@ public class GameManager {
 
 
     //==========================================
-    //           PLACEHOLDER SHAPE
+    //             CIRCLE SHAPE
     //==========================================
 
+//    private void buildLevel() {
+//        int rows = 11;
+//        int middleRow = rows / 2;
+//        double radius = 5.5; // Radius of the circle (determines the curve)
     /**
      * The main per-frame update. BreakoutApp calls this once per
      * animation frame (this is our ANIMATION LOOP hook). Everything
