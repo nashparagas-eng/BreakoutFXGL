@@ -202,6 +202,10 @@ public class GameManager {
 
             // Number of bricks decreases by 2 for each step away from the center
             int bricksInRow = maxBricks - (2 * distanceFromMiddle);
+
+            // Total width of the current row to center it on the screen
+            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
+            double startX = (fieldWidth - rowWidth) / 2.0;
     }
 
 
