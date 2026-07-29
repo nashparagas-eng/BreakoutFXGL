@@ -248,6 +248,19 @@ public class GameManager {
 //            double startX = (fieldWidth - rowWidth) / 2.0;
 //
 //            for (int col = 0; col < bricksInRow; col++) {
+//                double x = startX + col * (brickWidth + gap);
+//                double y = startY + row * (brickHeight + gap);
+//
+//                BrickType brickType;
+//
+//                // Keeping your original color/type logic
+//                if (row == 0 && col % 2 == 0) {
+//                    brickType = BrickType.UNBREAKABLE;
+//                } else if (row == 1) {
+//                    brickType = BrickType.STRONG;
+//                } else {
+//                    brickType = BrickType.NORMAL;
+//                }
     /**
      * The main per-frame update. BreakoutApp calls this once per
      * animation frame (this is our ANIMATION LOOP hook). Everything
