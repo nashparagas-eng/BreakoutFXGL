@@ -236,6 +236,11 @@ public class GameManager {
 //        int rows = 11;
 //        int middleRow = rows / 2;
 //        double radius = 5.5; // Radius of the circle (determines the curve)
+
+//        double brickWidth = 65;
+//        double brickHeight = 24;
+//        double gap = 6;
+//        double startY = 60;
     /**
      * The main per-frame update. BreakoutApp calls this once per
      * animation frame (this is our ANIMATION LOOP hook). Everything
