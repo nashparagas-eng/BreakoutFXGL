@@ -181,8 +181,10 @@ public class GameManager {
 //    }
 
     //==========================================
-    //           PLACEHOLDER SHAPE
+    //            DIAMOND SHAPE
     //==========================================
+
+    private void buildLevel() {
 
 
     //==========================================
