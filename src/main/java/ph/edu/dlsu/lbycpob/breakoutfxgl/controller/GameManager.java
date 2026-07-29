@@ -244,6 +244,10 @@ public class GameManager {
 
 //        for (int row = 0; row < rows; row++) {
 //            double distanceFromMiddle = Math.abs(middleRow - row);
+//            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
+//            double startX = (fieldWidth - rowWidth) / 2.0;
+//
+//            for (int col = 0; col < bricksInRow; col++) {
     /**
      * The main per-frame update. BreakoutApp calls this once per
      * animation frame (this is our ANIMATION LOOP hook). Everything
