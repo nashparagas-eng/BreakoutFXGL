@@ -181,14 +181,96 @@ public class GameManager {
     }
 
     //==========================================
-    //           PLACEHOLDER SHAPE
+    //            DIAMOND SHAPE
     //==========================================
+
+//    private void buildLevel() {
+//        int rows = 11;
+//        int maxBricks = 11;
+//        int middleRow = rows / 2;
+//
+//        double brickWidth = 65;
+//        double brickHeight = 24;
+//        double gap = 6;
+//        double startY = 60;
+//
+//        for (int row = 0; row < rows; row++) {
+//            int distanceFromMiddle = Math.abs(middleRow - row);
+//            int bricksInRow = maxBricks - (2 * distanceFromMiddle);
+//
+//            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
+//            double startX = (fieldWidth - rowWidth) / 2.0;
+//
+//            for (int col = 0; col < bricksInRow; col++) {
+//                double x = startX + col * (brickWidth + gap);
+//                double y = startY + row * (brickHeight + gap);
+//
+//                BrickType brickType;
+//
+//                // Applying the color logic based on the reference image
+//                if (row == 0 && col % 2 == 0) {
+//                    brickType = BrickType.UNBREAKABLE;
+//                } else if (row == 1) {
+//                    brickType = BrickType.STRONG;
+//                } else {
+//                    brickType = BrickType.NORMAL;
+//                }
+//
+//                bricks.add(new Brick(
+//                        x,
+//                        y,
+//                        brickWidth,
+//                        brickHeight,
+//                        brickType
+//                ));
+//            }
+//        }
+//    }
 
 
     //==========================================
-    //           PLACEHOLDER SHAPE
+    //             CIRCLE SHAPE
     //==========================================
 
+//    private void buildLevel() {
+//        int rows = 11;
+//        int middleRow = rows / 2;
+//        double radius = 5.5; // Radius of the circle (determines the curve)
+
+//        double brickWidth = 65;
+//        double brickHeight = 24;
+//        double gap = 6;
+//        double startY = 60;
+
+//        for (int row = 0; row < rows; row++) {
+//            double distanceFromMiddle = Math.abs(middleRow - row);
+//            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
+//            double startX = (fieldWidth - rowWidth) / 2.0;
+//
+//            for (int col = 0; col < bricksInRow; col++) {
+//                double x = startX + col * (brickWidth + gap);
+//                double y = startY + row * (brickHeight + gap);
+//
+//                BrickType brickType;
+//
+//                // Keeping your original color/type logic
+//                if (row == 0 && col % 2 == 0) {
+//                    brickType = BrickType.UNBREAKABLE;
+//                } else if (row == 1) {
+//                    brickType = BrickType.STRONG;
+//                } else {
+//                    brickType = BrickType.NORMAL;
+//                }
+//                bricks.add(new Brick(
+//                        x,
+//                        y,
+//                        brickWidth,
+//                        brickHeight,
+//                        brickType
+//                ));
+//            }
+//        }
+//    }
     /**
      * The main per-frame update. BreakoutApp calls this once per
      * animation frame (this is our ANIMATION LOOP hook). Everything
