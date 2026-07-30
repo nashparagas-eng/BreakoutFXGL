@@ -138,47 +138,47 @@ public class GameManager {
     //            INVERTED TRIANGLE
     //==========================================
 
-//    private void buildLevel() {
-//        int rows = 9;
-//
-//        double brickWidth = 65;
-//        double brickHeight = 24;
-//        double gap = 6;
-//        double startY = 90;
-//
-//        for (int row = 0; row < rows; row++) {
-//            int bricksInRow = rows - row;
-//
-//            double rowWidth =
-//                    bricksInRow * brickWidth
-//                            + (bricksInRow - 1) * gap;
-//
-//            double startX = (fieldWidth - rowWidth) / 2.0;
-//
-//            for (int col = 0; col < bricksInRow; col++) {
-//                double x = startX + col * (brickWidth + gap);
-//                double y = startY + row * (brickHeight + gap);
-//
-//                BrickType brickType;
-//
-//                if (row == 0 && col % 2 == 0) {
-//                    brickType = BrickType.UNBREAKABLE;
-//                } else if (row == 1) {
-//                    brickType = BrickType.STRONG;
-//                } else {
-//                    brickType = BrickType.NORMAL;
-//                }
-//
-//                bricks.add(new Brick(
-//                        x,
-//                        y,
-//                        brickWidth,
-//                        brickHeight,
-//                        brickType
-//                ));
-//            }
-//        }
-//    }
+    private void buildLevel() {
+        int rows = 9;
+
+        double brickWidth = 65;
+        double brickHeight = 24;
+        double gap = 6;
+        double startY = 90;
+
+        for (int row = 0; row < rows; row++) {
+            int bricksInRow = rows - row;
+
+            double rowWidth =
+                    bricksInRow * brickWidth
+                            + (bricksInRow - 1) * gap;
+
+            double startX = (fieldWidth - rowWidth) / 2.0;
+
+            for (int col = 0; col < bricksInRow; col++) {
+                double x = startX + col * (brickWidth + gap);
+                double y = startY + row * (brickHeight + gap);
+
+                BrickType brickType;
+
+                if (row == 0 && col % 2 == 0) {
+                    brickType = BrickType.UNBREAKABLE;
+                } else if (row == 1) {
+                    brickType = BrickType.STRONG;
+                } else {
+                    brickType = BrickType.NORMAL;
+                }
+
+                bricks.add(new Brick(
+                        x,
+                        y,
+                        brickWidth,
+                        brickHeight,
+                        brickType
+                ));
+            }
+        }
+    }
 
     //==========================================
     //            DIAMOND SHAPE
