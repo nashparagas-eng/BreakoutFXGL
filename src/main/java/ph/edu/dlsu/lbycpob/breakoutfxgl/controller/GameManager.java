@@ -231,19 +231,24 @@ public class GameManager {
     //==========================================
     //             CIRCLE SHAPE
     //==========================================
-
+//
 //    private void buildLevel() {
 //        int rows = 11;
 //        int middleRow = rows / 2;
 //        double radius = 5.5; // Radius of the circle (determines the curve)
-
+//
 //        double brickWidth = 65;
 //        double brickHeight = 24;
 //        double gap = 6;
 //        double startY = 60;
-
+//
 //        for (int row = 0; row < rows; row++) {
 //            double distanceFromMiddle = Math.abs(middleRow - row);
+//
+//
+//            double halfWidth = Math.sqrt((radius * radius) - (distanceFromMiddle * distanceFromMiddle));
+//            int bricksInRow = (int) Math.round(halfWidth * 2);
+//
 //            double rowWidth = bricksInRow * brickWidth + (bricksInRow - 1) * gap;
 //            double startX = (fieldWidth - rowWidth) / 2.0;
 //
@@ -253,7 +258,6 @@ public class GameManager {
 //
 //                BrickType brickType;
 //
-//                // Keeping your original color/type logic
 //                if (row == 0 && col % 2 == 0) {
 //                    brickType = BrickType.UNBREAKABLE;
 //                } else if (row == 1) {
@@ -261,6 +265,7 @@ public class GameManager {
 //                } else {
 //                    brickType = BrickType.NORMAL;
 //                }
+//
 //                bricks.add(new Brick(
 //                        x,
 //                        y,
